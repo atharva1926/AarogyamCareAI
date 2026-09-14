@@ -10,6 +10,7 @@ import { AppointmentsPage } from './pages/AppointmentsPage'
 import { ChatHistoryPage } from './pages/ChatHistoryPage'
 import { ChatPage } from './pages/ChatPage'
 import { DashboardPage } from './pages/DashboardPage'
+import { DiseasePredictionPage } from './pages/DiseasePrediction'
 import { EmergencyPage } from './pages/EmergencyPage'
 import { ForgotPasswordPage } from './pages/ForgotPasswordPage'
 import { HealthProfilePage } from './pages/HealthProfilePage'
@@ -20,6 +21,7 @@ import { NearbyCarePage } from './pages/NearbyCarePage'
 import { NotFoundPage } from './pages/NotFoundPage'
 import { NotificationsPage } from './pages/NotificationsPage'
 import { ReportAnalysisPage } from './pages/ReportAnalysisPage'
+import { RiskPredictionPage } from './pages/RiskPrediction'
 import { ReportsPage } from './pages/ReportsPage'
 import { SettingsPage } from './pages/SettingsPage'
 import { SignupPage } from './pages/SignupPage'
@@ -43,6 +45,8 @@ export default function App() {
               <Route element={<ProtectedRoute />}>
                 <Route element={<DashboardLayout />}>
                   <Route path="/dashboard" element={<DashboardPage />} />
+                  <Route path="/disease-prediction" element={<DiseasePredictionPage />} />
+                  <Route path="/risk-prediction" element={<RiskPredictionPage />} />
                   <Route path="/chat" element={<ChatPage />} />
                   <Route path="/chat/:chatId" element={<ChatPage />} />
                   <Route path="/chat-history" element={<ChatHistoryPage />} />

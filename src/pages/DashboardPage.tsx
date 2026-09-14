@@ -1,4 +1,4 @@
-import { Activity, FileSearch, HeartPulse, MapPinned, MessageSquare, ShieldAlert, UserRound } from 'lucide-react'
+import { BrainCircuit, FileSearch, HeartPulse, MapPinned, MessageSquare, ShieldAlert, UserRound } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ThreeScene } from '../components/ThreeScene'
 import { Badge, Button, Card, Disclaimer } from '../components/ui'
@@ -9,7 +9,8 @@ import { formatDateTime, greetingForNow } from '../utils'
 const actions = [
   { to: '/chat', title: 'Ask AI', desc: 'Start a new conversation', icon: MessageSquare },
   { to: '/report-analysis', title: 'Analyze Report', desc: 'Upload a supported document', icon: FileSearch },
-  { to: '/chat', title: 'Check Symptoms', desc: 'Describe what you are feeling', icon: Activity },
+  { to: '/disease-prediction', title: 'Disease Prediction', desc: 'Select symptoms for an ML prediction', icon: BrainCircuit },
+  { to: '/risk-prediction', title: 'Health Risk Prediction', desc: 'Estimate cardiovascular risk from health inputs', icon: HeartPulse },
   { to: '/health-profile', title: 'Health Profile', desc: 'Review your saved details', icon: UserRound },
   { to: '/emergency', title: 'Emergency Help', desc: 'Get urgent next steps', icon: ShieldAlert },
   { to: '/nearby-care', title: 'Find Care', desc: 'Hospitals and specialists nearby', icon: MapPinned },
@@ -39,7 +40,7 @@ export function DashboardPage() {
         </Card>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7">
         {actions.map((action) => (
           <Link key={action.title} to={action.to}>
             <Card className="h-full transition hover:-translate-y-0.5 hover:shadow-md">

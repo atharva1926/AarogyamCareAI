@@ -8,12 +8,17 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+ml_backend/.venv/
 dist
 dist-ssr
 *.local
 .env
 .env.*
 !.env.example
+
+# Generated local reminder data can contain phone numbers and SMS delivery details.
+data/*.json
+!data/.gitkeep
 
 # Editor directories and files
 .vscode/*

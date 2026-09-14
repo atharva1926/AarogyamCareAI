@@ -41,7 +41,8 @@ function friendlyMessage(error: unknown): AppError {
       return new AppError('Unable to connect to the server. Please check your connection.')
     }
     return new AppError(
-      'Something went wrong while connecting to AarogyamCare AI. Please try again.',
+      axiosError.response.data?.message ??
+        'Something went wrong while connecting to AarogyamCare AI. Please try again.',
       axiosError.response.status,
     )
   }

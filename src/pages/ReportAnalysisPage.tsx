@@ -61,6 +61,12 @@ export function ReportAnalysisPage() {
   const [error, setError] = useState('')
   const previewUrl = useMemo(() => (file && file.type.startsWith('image/') ? URL.createObjectURL(file) : null), [file])
 
+  const selectFile = (selectedFile: File) => {
+    setFile(selectedFile)
+    setResult(null)
+    setError('')
+  }
+
   const analyze = async () => {
     if (!file) {
       setError('Please upload a report first.')
@@ -89,7 +95,7 @@ export function ReportAnalysisPage() {
         description="Upload a supported document, preview it, then generate an informational AI summary."
       />
       <Card>
-        <FileUploader onFile={setFile} fileName={file?.name} previewUrl={previewUrl} label="Upload report" />
+        <FileUploader onFile={selectFile} fileName={file?.name} previewUrl={previewUrl} label="Upload report" />
         {file && file.type === 'application/pdf' && <p className="mt-3 text-sm text-slate-500">PDF selected. Preview is available after opening the original file.</p>}
         <Button className="mt-4" onClick={() => void analyze()} disabled={loading}>
           Analyze

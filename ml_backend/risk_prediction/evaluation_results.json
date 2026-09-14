@@ -1,0 +1,165 @@
+{
+  "dataset": "OpenML dataset 45547 (Cardiovascular-Disease-dataset)",
+  "inspection": {
+    "source_rows": 70000,
+    "source_columns": 12,
+    "missing_values_before_cleaning": 0,
+    "duplicate_rows_before_cleaning": 24,
+    "rows_after_cleaning": 68613,
+    "rows_removed": 1387
+  },
+  "features": [
+    "age_years",
+    "height",
+    "weight",
+    "systolic_bp",
+    "diastolic_bp",
+    "bmi",
+    "gender",
+    "cholesterol",
+    "glucose",
+    "smoking",
+    "alcohol",
+    "physical_activity"
+  ],
+  "target": "cardio (0 = no cardiovascular disease recorded, 1 = cardiovascular disease recorded)",
+  "random_state": 42,
+  "test_size": 0.2,
+  "selection_criterion": "highest positive-class recall, then F1-score, then ROC-AUC",
+  "metrics": {
+    "logistic_regression": {
+      "accuracy": 0.7314,
+      "precision": 0.7588,
+      "recall": 0.6703,
+      "f1_score": 0.7118,
+      "roc_auc": 0.7951,
+      "confusion_matrix": [
+        [
+          5486,
+          1447
+        ],
+        [
+          2239,
+          4551
+        ]
+      ],
+      "false_negatives": 2239
+    },
+    "random_forest": {
+      "accuracy": 0.7372,
+      "precision": 0.7578,
+      "recall": 0.689,
+      "f1_score": 0.7217,
+      "roc_auc": 0.8038,
+      "confusion_matrix": [
+        [
+          5438,
+          1495
+        ],
+        [
+          2112,
+          4678
+        ]
+      ],
+      "false_negatives": 2112
+    }
+  },
+  "feature_importance": {
+    "logistic_regression": [
+      {
+        "feature": "numeric__systolic_bp",
+        "coefficient": 0.94018,
+        "absolute_importance": 0.94018
+      },
+      {
+        "feature": "categorical__cholesterol_3",
+        "coefficient": 0.59724,
+        "absolute_importance": 0.59724
+      },
+      {
+        "feature": "categorical__cholesterol_1",
+        "coefficient": -0.47418,
+        "absolute_importance": 0.47418
+      },
+      {
+        "feature": "numeric__age_years",
+        "coefficient": 0.34041,
+        "absolute_importance": 0.34041
+      },
+      {
+        "feature": "categorical__glucose_3",
+        "coefficient": -0.20524,
+        "absolute_importance": 0.20524
+      },
+      {
+        "feature": "numeric__weight",
+        "coefficient": 0.19214,
+        "absolute_importance": 0.19214
+      },
+      {
+        "feature": "categorical__physical_activity_0",
+        "coefficient": 0.13303,
+        "absolute_importance": 0.13303
+      },
+      {
+        "feature": "categorical__glucose_1",
+        "coefficient": 0.12817,
+        "absolute_importance": 0.12817
+      },
+      {
+        "feature": "categorical__glucose_2",
+        "coefficient": 0.12675,
+        "absolute_importance": 0.12675
+      },
+      {
+        "feature": "categorical__alcohol_0",
+        "coefficient": 0.12418,
+        "absolute_importance": 0.12418
+      }
+    ],
+    "random_forest": [
+      {
+        "feature": "numeric__systolic_bp",
+        "importance": 0.41646
+      },
+      {
+        "feature": "numeric__diastolic_bp",
+        "importance": 0.1905
+      },
+      {
+        "feature": "numeric__age_years",
+        "importance": 0.1336
+      },
+      {
+        "feature": "numeric__bmi",
+        "importance": 0.05754
+      },
+      {
+        "feature": "categorical__cholesterol_3",
+        "importance": 0.04555
+      },
+      {
+        "feature": "categorical__cholesterol_1",
+        "importance": 0.04434
+      },
+      {
+        "feature": "numeric__weight",
+        "importance": 0.04109
+      },
+      {
+        "feature": "numeric__height",
+        "importance": 0.02355
+      },
+      {
+        "feature": "categorical__cholesterol_2",
+        "importance": 0.00994
+      },
+      {
+        "feature": "categorical__glucose_1",
+        "importance": 0.00624
+      }
+    ]
+  },
+  "selected_model": "random_forest",
+  "selected_model_display_name": "Random Forest Classifier"
+}
