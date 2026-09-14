@@ -14,7 +14,6 @@ interface ChatState {
   createNewChat: () => string
   loadChat: (id: string) => void
   deleteChat: (id: string) => void
-  clearChat: () => void
   clearError: () => void
 }
 
@@ -54,24 +53,6 @@ export const useChatStore = create<ChatState>()(
           const activeChatId = state.activeChatId === id ? (chats[0]?.id ?? null) : state.activeChatId
           return { chats, activeChatId }
         })
-      },
-
-      clearChat: () => {
-        const { activeChatId } = get()
-        if (!activeChatId) return
-        set((state) => ({
-          chats: state.chats.map((c) =>
-            c.id === activeChatId
-              ? {
-                  ...c,
-                  messages: [],
-                  preview: 'Conversation cleared',
-                  updatedAt: new Date().toISOString(),
-                }
-              : c,
-          ),
-          error: null,
-        }))
       },
 
       clearError: () => set({ error: null }),

@@ -1,0 +1,21 @@
+{
+  "model": "Random Forest Classifier",
+  "selected_model": "random_forest",
+  "features": [
+    "age_years",
+    "height",
+    "weight",
+    "systolic_bp",
+    "diastolic_bp",
+    "bmi",
+    "gender",
+    "cholesterol",
+    "glucose",
+    "smoking",
+    "alcohol",
+    "physical_activity"
+  ],
+  "training_rows": 54890,
+  "test_rows": 13723,
+  "selection_criterion": "highest positive-class recall, then F1-score, then ROC-AUC"
+}

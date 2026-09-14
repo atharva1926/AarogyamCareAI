@@ -6,6 +6,9 @@
   "scripts": {
     "dev": "vite",
     "server": "node --experimental-strip-types server.ts",
+    "ml:server": "ml_backend\\.venv\\Scripts\\python.exe -m uvicorn app:app --app-dir ml_backend --host 127.0.0.1 --port 8000",
+    "ml:train": "cd ml_backend && py -m disease_prediction.train",
+    "ml:train-risk": "cd ml_backend && py -m risk_prediction.train",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
@@ -25,6 +28,7 @@
     "react-router-dom": "^7.18.3",
     "remark-gfm": "^4.0.1",
     "three": "^0.185.1",
+    "twilio": "^6.1.1",
     "zustand": "^5.0.15"
   },
   "devDependencies": {

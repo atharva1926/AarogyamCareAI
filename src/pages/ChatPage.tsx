@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { Trash2 } from 'lucide-react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ChatInput } from '../components/ChatInput'
 import { ChatMessage } from '../components/ChatMessage'
-import { Button, Card, Disclaimer, EmptyState, ErrorState, LoadingDots } from '../components/ui'
+import { Card, Disclaimer, EmptyState, ErrorState, LoadingDots } from '../components/ui'
 import { useChatStore } from '../store/chatStore'
 
 export function ChatPage() {
@@ -16,7 +15,6 @@ export function ChatPage() {
   const sendMessage = useChatStore((s) => s.sendMessage)
   const createNewChat = useChatStore((s) => s.createNewChat)
   const loadChat = useChatStore((s) => s.loadChat)
-  const clearChat = useChatStore((s) => s.clearChat)
   const clearError = useChatStore((s) => s.clearError)
 
   useEffect(() => {
@@ -24,11 +22,8 @@ export function ChatPage() {
       loadChat(chatId)
       return
     }
-    const existing = useChatStore.getState().activeChatId ?? useChatStore.getState().chats[0]?.id
-    if (existing) {
-      navigate(`/chat/${existing}`, { replace: true })
-      return
-    }
+    // Visiting /chat always starts a new conversation. Existing chats remain
+    // available only from Chat History and their /chat/:chatId links.
     const id = createNewChat()
     navigate(`/chat/${id}`, { replace: true })
   }, [chatId, createNewChat, loadChat, navigate])
@@ -45,13 +40,6 @@ export function ChatPage() {
             <p className="flex items-center gap-1.5 text-xs text-emerald-600">
               <span className="h-2 w-2 rounded-full bg-emerald-500" /> Online
             </p>
-          </div>
-          <div className="flex gap-2">
-
-            <Button variant="ghost" size="sm" onClick={clearChat} aria-label="Clear chat">
-              <Trash2 className="h-4 w-4" />
-              Clear
-            </Button>
           </div>
         </header>
 

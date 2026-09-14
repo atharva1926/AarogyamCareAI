@@ -1,7 +1,9 @@
 import {
   Bell,
+  HeartPulse,
   CalendarDays,
   History,
+  BrainCircuit,
   LayoutDashboard,
   LogOut,
   MessageSquare,
@@ -19,6 +21,8 @@ const items = [
   { to: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
   { to: '/chat', label: 'AI Assistant', icon: MessageSquare },
   { to: '/chat-history', label: 'Chat History', icon: History },
+  { to: '/disease-prediction', label: 'Disease Prediction', icon: BrainCircuit },
+  { to: '/risk-prediction', label: 'Health Risk Prediction', icon: HeartPulse },
   { to: '/health-profile', label: 'Health Profile', icon: UserRound },
   { to: '/reports', label: 'Health Reports', icon: FileText },
   { to: '/appointments', label: 'Appointments', icon: CalendarDays },

@@ -63,13 +63,65 @@ export interface ReportAnalysis {
   questionsForDoctor: string[]
 }
 
+export interface DiseasePredictionRequest {
+  symptoms: string[]
+}
+
+export interface DiseasePredictionResponse {
+  prediction: string
+  confidence: number
+  message: string
+}
+
+export interface SymptomsResponse {
+  symptoms: string[]
+}
+
+export type RiskGender = 'female' | 'male'
+export type RiskCategory = 1 | 2 | 3
+
+export interface RiskPredictionRequest {
+  age: number
+  gender: RiskGender
+  height: number
+  weight: number
+  systolic_bp: number
+  diastolic_bp: number
+  cholesterol: RiskCategory
+  glucose: RiskCategory
+  smoking: boolean
+  alcohol: boolean
+  physical_activity: boolean
+}
+
+export interface RiskPredictionResponse {
+  risk_level: 'Lower Risk' | 'Higher Risk'
+  prediction: 0 | 1
+  probability: number
+  model: string
+  message: string
+}
+
+export type AppointmentReminder = '15m' | '30m' | '1h' | '1d' | '2d'
+export type AppointmentSmsStatus = 'not_scheduled' | 'scheduled' | 'sending' | 'sent' | 'failed' | 'skipped'
+
 export interface Appointment {
   id: string
   doctor: string
-  specialization: string
   date: string
   time: string
-  status: 'upcoming' | 'completed' | 'cancelled'
+  reminder: AppointmentReminder
+  reminderMessage: string
+  patientPhone: string
+  smsConsent: boolean
+  createdAt: string
+  updatedAt: string
+  smsStatus?: AppointmentSmsStatus
+  smsSentAt?: string
+  smsLastAttemptAt?: string
+  smsLastError?: string
+  smsSid?: string
+  smsProviderStatus?: string
 }
 
 export type AppNotificationKind = 'report' | 'appointment' | 'system' | 'account'
